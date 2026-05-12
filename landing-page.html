@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 60-Day Glow Up Guide — Science-Based Fat Loss for Women</title>
+<meta name="description" content="The science-based 60-day protocol to lose fat, build strength, and feel like the version of yourself you've been waiting on. No detoxes. No 1,200-calorie diets.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── RESET & BASE ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:     #faf6f0;
+  --cream-mid: #f2ebe0;
+  --cream-dk:  #e8dece;
+  --gold:      #b08050;
+  --gold-lt:   #d4a870;
+  --gold-dk:   #7a5830;
+  --brown:     #3a2410;
+  --brown-mid: #5c3c20;
+  --text:      #2e1e0e;
+  --text-mid:  #6b5040;
+  --text-lt:   #9a7a60;
+  --white:     #ffffff;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'DM Sans', system-ui, sans-serif;
+  --ease:      cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ──────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.5;
+}
+
+/* ── SCROLL REVEAL ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── TYPOGRAPHY ─────────────────────────────────── */
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.1; }
+p { line-height: 1.7; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  width: fit-content;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+.ornament span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+/* ── LAYOUT HELPERS ─────────────────────────────── */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.text-center { text-align: center; }
+
+/* ── STICKY NAV ─────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+nav.scrolled {
+  background: rgba(250, 246, 240, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(176, 128, 80, 0.15);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--brown);
+  text-decoration: none;
+}
+.nav-cta {
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover { background: var(--brown-mid); transform: translateY(-1px); }
+
+/* ── HERO ───────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  padding: 120px 80px 80px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #faf6f0 0%, #f5ede0 60%, #eddcc8 100%);
+}
+
+/* Decorative circles */
+#hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176,128,80,0.10) 0%, transparent 70%);
+  top: -200px; right: -100px;
+  pointer-events: none;
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176,128,80,0.08) 0%, transparent 70%);
+  bottom: -100px; left: -50px;
+  pointer-events: none;
+}
+
+.hero-left { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.hero-eyebrow .line {
+  width: 32px; height: 1px;
+  background: var(--gold); opacity: 0.6;
+}
+
+.hero-title {
+  font-size: clamp(3.2rem, 5vw, 5.5rem);
+  color: var(--brown);
+  line-height: 0.95;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.hero-title em { color: var(--gold-dk); font-style: italic; }
+.hero-title .big { font-size: clamp(5rem, 8vw, 9rem); line-height: 0.85; display: block; }
+
+.hero-sub {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-mid);
+  line-height: 1.5;
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.hero-stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-lt);
+  font-weight: 600;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--brown);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 18px 36px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 8px 30px rgba(58, 36, 16, 0.25);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--gold-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(58, 36, 16, 0.3);
+}
+.btn-primary .arrow {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+.btn-primary:hover .arrow { transform: translateX(3px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 16px;
+  transition: color 0.2s;
+}
+.btn-secondary:hover { color: var(--gold); }
+
+/* Hero book mockup */
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.book-stage {
+  position: relative;
+  width: 320px;
+  height: 480px;
+}
+
+.book-3d {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1200px) rotateY(-22deg) rotateX(3deg);
+  filter: drop-shadow(40px 60px 60px rgba(58,36,16,0.3));
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: perspective(1200px) rotateY(-22deg) rotateX(3deg) translateY(0); }
+  50%       { transform: perspective(1200px) rotateY(-22deg) rotateX(3deg) translateY(-12px); }
+}
+
+.book-face {
+  position: absolute;
+  width: 300px; height: 450px;
+  background: linear-gradient(155deg, #d4a574 0%, #b08458 40%, #8a6438 100%);
+  border-radius: 3px 8px 8px 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 30px;
+  color: #fdf8f2;
+  overflow: hidden;
+}
+.book-face::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.15) 0%, transparent 50%);
+}
+.book-face-content { position: relative; z-index: 1; }
+.book-badge {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 20px;
+}
+.book-face h2 {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 0.95;
+  margin-bottom: 0;
+}
+.book-face h2 em { font-style: italic; font-weight: 400; }
+.book-num {
+  font-family: var(--serif);
+  font-size: 8rem;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0.9;
+  margin: 8px 0;
+  letter-spacing: -0.03em;
+}
+.book-day {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+.book-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.75rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+.book-spine {
+  position: absolute;
+  width: 32px; height: 450px;
+  left: -31px; top: 0;
+  background: linear-gradient(to right, #6b4828 0%, #8a6438 100%);
+  border-radius: 4px 0 0 4px;
+  transform-origin: right center;
+}
+.book-pages-edge {
+  position: absolute;
+  width: 28px; height: 448px;
+  right: -27px; top: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #faf0e0 0px, #faf0e0 1px,
+    #f0e4cc 1px, #f0e4cc 2px
+  );
+  border-radius: 0 3px 3px 0;
+}
+
+/* Floating tags around book */
+.float-tag {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 30px rgba(58,36,16,0.12);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--brown);
+  white-space: nowrap;
+  animation: tagfloat 4s ease-in-out infinite;
+}
+.float-tag span { color: var(--gold); margin-right: 4px; }
+.float-tag-1 { top: -20px; right: -40px; animation-delay: 0s; }
+.float-tag-2 { top: 160px; right: -60px; animation-delay: 1s; }
+.float-tag-3 { bottom: 80px; right: -50px; animation-delay: 2s; }
+.float-tag-4 { bottom: -10px; left: -40px; animation-delay: 1.5s; }
+
+@keyframes tagfloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ── TRUST BAR ──────────────────────────────────── */
+#trust {
+  background: var(--brown);
+  padding: 20px 0;
+  overflow: hidden;
+}
+.trust-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll-track 20s linear infinite;
+  width: max-content;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(250,246,240,0.7);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.trust-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.6; }
+@keyframes scroll-track {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── PROBLEM SECTION ────────────────────────────── */
+#problem {
+  padding: 120px 0;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-mid) 100%);
+}
+
+.problem-intro {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--brown);
+  line-height: 1.25;
+  max-width: 680px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+.problem-intro em { color: var(--gold-dk); font-style: italic; }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 60px;
+}
+.problem-card {
+  background: var(--white);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.problem-card:hover::before { opacity: 1; }
+.problem-num {
+  font-family: var(--serif);
+  font-size: 3rem;
+  color: var(--cream-dk);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.problem-card h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--brown);
+  margin-bottom: 12px;
+}
+.problem-card p {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.problem-closer {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--text-mid);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.problem-closer strong { color: var(--brown); font-style: normal; }
+
+/* ── SOLUTION SECTION ───────────────────────────── */
+#solution {
+  padding: 120px 0;
+  background: var(--brown);
+  position: relative;
+  overflow: hidden;
+}
+#solution::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176,128,80,0.12) 0%, transparent 70%);
+  top: -300px; right: -200px;
+}
+
+.solution-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.solution-title {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  color: var(--cream);
+  text-align: center;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.solution-title em { color: var(--gold-lt); font-style: italic; }
+.solution-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: rgba(250,246,240,0.65);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 70px;
+  line-height: 1.5;
+}
+
+.levers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  max-width: 820px;
+  margin: 0 auto 70px;
+}
+.lever {
+  background: rgba(58,36,16,0.8);
+  padding: 40px;
+  transition: background 0.3s;
+}
+.lever:hover { background: rgba(58,36,16,0.95); }
+.lever-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(176,128,80,0.15);
+  border: 1px solid rgba(176,128,80,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+.lever h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.lever p {
+  font-size: 0.85rem;
+  color: rgba(250,246,240,0.55);
+  line-height: 1.7;
+}
+.lever-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  font-weight: 600;
+}
+
+/* ── WHAT'S INSIDE ──────────────────────────────── */
+#inside {
+  padding: 120px 0;
+  background: var(--cream-mid);
+}
+
+.inside-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.inside-title {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: var(--brown);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.inside-title em { color: var(--gold-dk); font-style: italic; }
+.inside-sub {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--text-lt);
+}
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 60px;
+}
+.chapter-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  border: 1px solid var(--cream-dk);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.chapter-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-lt), var(--gold));
+  transform: scaleX(0);
+  transition: transform 0.3s var(--ease);
+  transform-origin: left;
+}
+.chapter-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(58,36,16,0.1); }
+.chapter-card:hover::after { transform: scaleX(1); }
+.chapter-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.chapter-card h4 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+.chapter-card p {
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* Bonus items */
+.bonuses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.bonus {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid var(--cream-dk);
+}
+.bonus-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--cream-dk), var(--cream-mid));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.bonus h4 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--brown);
+  margin-bottom: 4px;
+}
+.bonus p {
+  font-size: 0.78rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ── FOR YOU / NOT FOR YOU ──────────────────────── */
+#fit {
+  padding: 120px 0;
+  background: var(--cream);
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.fit-col {
+  padding: 50px 44px;
+}
+.fit-col-yes { background: var(--white); }
+.fit-col-no  { background: var(--cream-mid); }
+.fit-col h3 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--brown);
+  margin-bottom: 28px;
+}
+.fit-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  align-items: flex-start;
+}
+.fit-icon { font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+
+/* ── SCIENCE SECTION ────────────────────────────── */
+#science {
+  padding: 120px 0;
+  background: linear-gradient(160deg, var(--cream-mid) 0%, var(--cream-dk) 100%);
+}
+
+.science-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-style: italic;
+  color: var(--brown);
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 60px;
+  line-height: 1.3;
+}
+.science-quote strong { font-style: normal; color: var(--gold-dk); }
+
+.science-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.science-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.9);
+}
+.science-tag {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.science-card p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.science-card p strong { color: var(--brown); }
+
+/* ── PRICING ────────────────────────────────────── */
+#pricing {
+  padding: 120px 0;
+  background: var(--brown);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#pricing::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,112,0.1) 0%, transparent 70%);
+  bottom: -200px; left: 50%;
+  transform: translateX(-50%);
+}
+
+.pricing-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.pricing-title {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.pricing-title em { color: var(--gold-lt); font-style: italic; }
+
+.pricing-card {
+  display: inline-block;
+  background: var(--cream);
+  border-radius: 24px;
+  padding: 52px 60px;
+  margin: 50px auto;
+  max-width: 520px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+}
+
+.price-launch-tag {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 100px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(176,128,80,0.4);
+}
+
+.price-was {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text-lt);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.price-now {
+  font-family: var(--serif);
+  font-size: 5rem;
+  color: var(--brown);
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.price-note {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text-lt);
+  margin-bottom: 32px;
+}
+
+.includes {
+  text-align: left;
+  margin-bottom: 36px;
+}
+.include-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cream-dk);
+  font-size: 0.875rem;
+  color: var(--text-mid);
+}
+.include-item:last-child { border-bottom: none; }
+.include-check {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.btn-buy {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, var(--brown) 0%, var(--brown-mid) 100%);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 14px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(58,36,16,0.25);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+.btn-buy:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(58,36,16,0.3); }
+
+.guarantee-note {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--text-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ── FAQ ────────────────────────────────────────── */
+#faq {
+  padding: 120px 0;
+  background: var(--cream);
+}
+
+.faq-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  color: var(--brown);
+  text-align: center;
+  margin-bottom: 60px;
+}
+.faq-title em { font-style: italic; color: var(--gold-dk); }
+
+.faq-list { max-width: 680px; margin: 0 auto; }
+
+.faq-item {
+  border-bottom: 1px solid var(--cream-dk);
+  cursor: pointer;
+}
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--brown);
+  gap: 16px;
+}
+.faq-q .chevron {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--cream-dk);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.3s, background 0.3s;
+}
+.faq-item.open .chevron { transform: rotate(180deg); background: var(--gold); color: white; border-color: var(--gold); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease), padding 0.3s;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+.faq-item.open .faq-a { max-height: 400px; padding-bottom: 24px; }
+
+/* ── FINAL CTA ──────────────────────────────────── */
+#final-cta {
+  padding: 140px 0;
+  background: linear-gradient(160deg, var(--cream-mid) 0%, var(--cream-dk) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#final-cta::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176,128,80,0.1) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.final-ornament { margin-bottom: 36px; }
+.final-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  color: var(--brown);
+  line-height: 1.05;
+  margin-bottom: 20px;
+  position: relative;
+}
+.final-title em { color: var(--gold-dk); font-style: italic; }
+.final-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--text-mid);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.5;
+}
+.final-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* ── FOOTER ─────────────────────────────────────── */
+footer {
+  background: var(--brown);
+  padding: 40px 24px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.footer-links a {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: rgba(250,246,240,0.45);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-lt); }
+.footer-disc {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: rgba(250,246,240,0.3);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 900px) {
+  #hero {
+    grid-template-columns: 1fr;
+    padding: 100px 24px 60px;
+    text-align: center;
+    gap: 60px;
+  }
+  .hero-stats { justify-content: center; }
+  .hero-sub { margin: 0 auto 36px; }
+  .hero-right { display: none; }
+  .problem-grid, .chapters { grid-template-columns: 1fr; }
+  .fit-grid { grid-template-columns: 1fr; }
+  .levers { grid-template-columns: 1fr; }
+  .science-grid { grid-template-columns: 1fr; }
+  .bonuses { grid-template-columns: 1fr; }
+  .hero-eyebrow { justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  #hero { padding: 90px 20px 60px; }
+  .pricing-card { padding: 40px 28px; }
+  .fit-col { padding: 36px 28px; }
+  .chapters { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">The Glow Up</a>
+  <a href="#pricing" class="nav-cta">Get Instant Access →</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow reveal">
+      <div class="line"></div>
+      <span class="eyebrow">A Science-Based Protocol</span>
+    </div>
+
+    <h1 class="hero-title reveal reveal-delay-1">
+      The
+      <em>Glow</em>
+      <span class="big">Up</span>
+    </h1>
+
+    <p class="hero-sub reveal reveal-delay-2">
+      60 days to lose fat, build strength, and finally feel like the version of yourself you've been waiting on.
+    </p>
+
+    <div class="hero-stats reveal reveal-delay-2">
+      <div>
+        <div class="hero-stat-num">50</div>
+        <div class="hero-stat-label">Pages</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">11</div>
+        <div class="hero-stat-label">Chapters</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">7-Day</div>
+        <div class="hero-stat-label">Meal Plan</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">60</div>
+        <div class="hero-stat-label">Day Calendar</div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-3">
+      <a href="#pricing" class="btn-primary">
+        Get Instant Access
+        <span class="arrow">→</span>
+      </a>
+      <br>
+      <a href="#inside" class="btn-secondary">↓ See what's inside</a>
+    </div>
+  </div>
+
+  <div class="hero-right reveal reveal-delay-2">
+    <div class="book-stage">
+      <div class="book-3d">
+        <div class="book-spine"></div>
+        <div class="book-pages-edge"></div>
+        <div class="book-face">
+          <div class="book-face-content">
+            <div class="book-badge">A Science-Based Guide</div>
+            <h2>The<br><em>Glow Up</em></h2>
+          </div>
+          <div class="book-face-content">
+            <div class="book-num">60</div>
+            <div class="book-day">Days to Your Best Self</div>
+            <div class="book-tagline">A complete protocol for fat loss,<br>strength & radiance — backed by science</div>
+          </div>
+        </div>
+      </div>
+      <div class="float-tag float-tag-1"><span>✦</span> 50 pages</div>
+      <div class="float-tag float-tag-2"><span>✦</span> Meal plan included</div>
+      <div class="float-tag float-tag-3"><span>✦</span> Printable logs</div>
+      <div class="float-tag float-tag-4"><span>✦</span> Instant download</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div id="trust">
+  <div class="trust-track">
+    <!-- doubled for seamless loop -->
+    <div class="trust-item"><div class="trust-dot"></div>Science-Based</div>
+    <div class="trust-item"><div class="trust-dot"></div>No Detoxes</div>
+    <div class="trust-item"><div class="trust-dot"></div>No 1,200-Cal Diets</div>
+    <div class="trust-item"><div class="trust-dot"></div>50 Pages</div>
+    <div class="trust-item"><div class="trust-dot"></div>Instant Download</div>
+    <div class="trust-item"><div class="trust-dot"></div>Printable Worksheets</div>
+    <div class="trust-item"><div class="trust-dot"></div>Hormone-Safe</div>
+    <div class="trust-item"><div class="trust-dot"></div>14-Day Guarantee</div>
+    <div class="trust-item"><div class="trust-dot"></div>Science-Based</div>
+    <div class="trust-item"><div class="trust-dot"></div>No Detoxes</div>
+    <div class="trust-item"><div class="trust-dot"></div>No 1,200-Cal Diets</div>
+    <div class="trust-item"><div class="trust-dot"></div>50 Pages</div>
+    <div class="trust-item"><div class="trust-dot"></div>Instant Download</div>
+    <div class="trust-item"><div class="trust-dot"></div>Printable Worksheets</div>
+    <div class="trust-item"><div class="trust-dot"></div>Hormone-Safe</div>
+    <div class="trust-item"><div class="trust-dot"></div>14-Day Guarantee</div>
+  </div>
+</div>
+
+<!-- ── PROBLEM ── -->
+<section id="problem">
+  <div class="container-narrow">
+    <div class="text-center reveal">
+      <span class="eyebrow">Sound familiar?</span>
+    </div>
+    <h2 class="problem-intro reveal reveal-delay-1">
+      You've tried the 1,200-calorie weeks.<br>The detox teas.<br>The <em>endless cardio.</em>
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-num">01</div>
+        <h3>You lost weight — and gained it all back</h3>
+        <p>Extreme restriction drops the number on the scale. Then your metabolism adapts, hunger skyrockets, and two weeks later you're back where you started — or higher.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-1">
+        <div class="problem-num">02</div>
+        <h3>You did everything "right" and still don't see results</h3>
+        <p>Clean eating and daily cardio — but no visible change. Because without enough protein and strength training, fat stays and muscle disappears.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <div class="problem-num">03</div>
+        <h3>You feel like your body is working against you</h3>
+        <p>It's not willpower. It's strategy. The wellness industry profits from keeping you confused, cycling through plans, and buying things that don't work.</p>
+      </div>
+    </div>
+
+    <p class="problem-closer reveal">It's not a <strong>you problem.</strong> It's a plan problem.</p>
+  </div>
+</section>
+
+<!-- ── SOLUTION ── -->
+<section id="solution">
+  <div class="container-narrow">
+    <div class="solution-label reveal">The fix</div>
+    <h2 class="solution-title reveal reveal-delay-1">
+      Four levers.<br><em>Sixty days.</em><br>One transformation.
+    </h2>
+    <p class="solution-sub reveal reveal-delay-2">
+      Every glow up — every single one — comes down to these four things working together. Nothing else.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="levers">
+      <div class="lever reveal">
+        <div class="lever-icon">🔥</div>
+        <h3>Energy Balance</h3>
+        <p>A modest deficit of 300–500 calories per day — built for your body, not a generic template. Fast enough to see progress, slow enough to keep your muscle and your sanity.</p>
+        <span class="lever-tag">Chapter 3 · Nutrition</span>
+      </div>
+      <div class="lever reveal reveal-delay-1">
+        <div class="lever-icon">💪</div>
+        <h3>Protein + Lifting</h3>
+        <p>The only combination proven to lose fat while building the muscle that creates the "toned" look. 0.7–1g protein per pound. 4 lifting sessions per week. That's the shape.</p>
+        <span class="lever-tag">Chapters 3 & 4 · Nutrition & Training</span>
+      </div>
+      <div class="lever reveal">
+        <div class="lever-icon">🌙</div>
+        <h3>Sleep</h3>
+        <p>Sleep less than 6 hours and you lose 60% more muscle and 55% less fat on the exact same deficit. It's the most studied, most ignored body composition tool there is.</p>
+        <span class="lever-tag">Chapter 5 · Recovery</span>
+      </div>
+      <div class="lever reveal reveal-delay-1">
+        <div class="lever-icon">🚶‍♀️</div>
+        <h3>Daily Movement</h3>
+        <p>Non-exercise activity — walking, standing, moving through your day — can account for hundreds of daily calories. It's often the difference between progress and a plateau.</p>
+        <span class="lever-tag">Chapter 2 · The Roadmap</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S INSIDE ── -->
+<section id="inside">
+  <div class="container">
+    <div class="inside-header">
+      <span class="eyebrow reveal">What you get</span>
+      <h2 class="inside-title reveal reveal-delay-1">50 pages. <em>Fully designed.</em><br>Nothing left out.</h2>
+      <p class="inside-sub reveal reveal-delay-2">11 chapters covering everything that actually moves the needle.</p>
+    </div>
+
+    <div class="chapters">
+      <div class="chapter-card reveal">
+        <div class="chapter-num">01</div>
+        <h4>The Science of a Glow Up</h4>
+        <p>The four levers that actually change a body — and everything you can safely ignore.</p>
+      </div>
+      <div class="chapter-card reveal reveal-delay-1">
+        <div class="chapter-num">02</div>
+        <h4>The 60-Day Roadmap</h4>
+        <p>Three phases broken down week by week. Foundation → Acceleration → Refinement.</p>
+      </div>
+      <div class="chapter-card reveal reveal-delay-2">
+        <div class="chapter-num">03</div>
+        <h4>Nutrition That Works</h4>
+        <p>Your exact calorie + protein formula. The plate template. A full sample day of eating.</p>
+      </div>
+      <div class="chapter-card reveal">
+        <div class="chapter-num">04</div>
+        <h4>Training That Shapes</h4>
+        <p>A 4-day upper/lower strength plan with form cues for every single lift.</p>
+      </div>
+      <div class="chapter-card reveal reveal-delay-1">
+        <div class="chapter-num">05</div>
+        <h4>Sleep & Recovery</h4>
+        <p>The wind-down protocol, morning light habit, and exactly why sleep is body composition.</p>
+      </div>
+      <div class="chapter-card reveal reveal-delay-2">
+        <div class="chapter-num">06</div>
+        <h4>Skin, Hair & The Outer Glow</h4>
+        <p>The only 4 dermatologist-backed skincare steps — and what feeds your glow from inside.</p>
+      </div>
+      <div class="chapter-card reveal">
+        <div class="chapter-num">07</div>
+        <h4>Mindset & Habits</h4>
+        <p>Identity-based habit change. The bad-day protocol. The cravings playbook.</p>
+      </div>
+      <div class="chapter-card reveal reveal-delay-1">
+        <div class="chapter-num">08</div>
+        <h4>Tracking & Troubleshooting</h4>
+        <p>What to measure weekly, what to ignore, and exactly what to do when progress stalls.</p>
+      </div>
+      <div class="chapter-card reveal reveal-delay-2">
+        <div class="chapter-num">09–11</div>
+        <h4>The Printable System</h4>
+        <p>7-day meal plan, grocery list, workout logs, habit tracker & the full 60-day calendar.</p>
+      </div>
+    </div>
+
+    <div class="bonuses">
+      <div class="bonus reveal">
+        <div class="bonus-icon">🗓</div>
+        <div>
+          <h4>60-Day Calendar</h4>
+          <p>Color-coded by phase. Every workout, every rest day, every milestone check-in — mapped on two pages.</p>
+        </div>
+      </div>
+      <div class="bonus reveal reveal-delay-1">
+        <div class="bonus-icon">🥗</div>
+        <div>
+          <h4>7-Day Meal Plan + Grocery List</h4>
+          <p>~1,700 cal / 130g protein. Full week of meals with a complete, ready-to-shop list.</p>
+        </div>
+      </div>
+      <div class="bonus reveal">
+        <div class="bonus-icon">📋</div>
+        <div>
+          <h4>4 Workout Log Printables</h4>
+          <p>One per training day. Log weight, reps, sets, RIR. Progressive overload made simple.</p>
+        </div>
+      </div>
+      <div class="bonus reveal reveal-delay-1">
+        <div class="bonus-icon">✅</div>
+        <div>
+          <h4>Weekly Habit Tracker</h4>
+          <p>8 daily non-negotiables. Sunday check-in with measurements and notes. Print one per week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOR YOU / NOT ── -->
+<section id="fit">
+  <div class="container-narrow">
+    <div class="text-center reveal" style="margin-bottom: 50px;">
+      <span class="eyebrow">Honest answer</span>
+      <h2 style="font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.5rem); color: var(--brown); margin-top: 12px;">Is this for you?</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="fit-grid reveal">
+      <div class="fit-col fit-col-yes">
+        <h3>This is for you if —</h3>
+        <div class="fit-item"><span class="fit-icon">✓</span> You're done with diets that wreck your hormones</div>
+        <div class="fit-item"><span class="fit-icon">✓</span> You want to understand <em>why</em> something works</div>
+        <div class="fit-item"><span class="fit-icon">✓</span> You're ready to lift weights 3–4 times a week</div>
+        <div class="fit-item"><span class="fit-icon">✓</span> You want results that last past 8 weeks</div>
+        <div class="fit-item"><span class="fit-icon">✓</span> You want one clear plan, not 50 conflicting opinions</div>
+      </div>
+      <div class="fit-col fit-col-no">
+        <h3>This isn't for you if —</h3>
+        <div class="fit-item"><span class="fit-icon">✗</span> You want to lose 20 lbs in 30 days</div>
+        <div class="fit-item"><span class="fit-icon">✗</span> You're looking for a 1,200-calorie plan</div>
+        <div class="fit-item"><span class="fit-icon">✗</span> You want a supplement to do the work</div>
+        <div class="fit-item"><span class="fit-icon">✗</span> You won't lift weights</div>
+        <div class="fit-item"><span class="fit-icon">✗</span> You want quick fixes over real change</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCIENCE ── -->
+<section id="science">
+  <div class="container-narrow">
+    <div class="text-center reveal" style="margin-bottom: 16px;">
+      <span class="eyebrow">Backed by research</span>
+    </div>
+    <blockquote class="science-quote reveal reveal-delay-1">
+      "No detoxes. No trends. Just <strong>what the research actually shows</strong> — distilled into 60 days."
+    </blockquote>
+  </div>
+
+  <div class="container">
+    <div class="science-grid">
+      <div class="science-card reveal">
+        <div class="science-tag">Sports Medicine, 2018</div>
+        <p>A meta-analysis found that combining a moderate calorie deficit with resistance training and high protein produces the greatest fat loss <strong>and muscle preservation</strong> in women. Cardio alone consistently underperforms this combination.</p>
+      </div>
+      <div class="science-card reveal reveal-delay-1">
+        <div class="science-tag">Annals of Internal Medicine</div>
+        <p>Dieters sleeping 5.5 hours lost <strong>60% more muscle and 55% less fat</strong> than those sleeping 8.5 hours — on the exact same calorie deficit. Sleep is body composition.</p>
+      </div>
+      <div class="science-card reveal reveal-delay-2">
+        <div class="science-tag">Sports Medicine, 2021</div>
+        <p>Resistance training caused significant fat loss <em>without</em> calorie restriction. Combined with a deficit, it <strong>doubled the body composition improvements</strong> compared to a deficit alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing">
+  <div class="container-narrow">
+    <div class="pricing-eyebrow reveal">Ready to start</div>
+    <h2 class="pricing-title reveal reveal-delay-1">
+      Get the full <em>60-day plan</em><br>for less than a single gym class.
+    </h2>
+
+    <div class="pricing-card reveal reveal-delay-2">
+      <div class="price-launch-tag">✦ Launch Price — Limited Time</div>
+      <div class="price-was">Regular price $27</div>
+      <div class="price-now">$17</div>
+      <div class="price-note">One-time payment · Instant PDF download · Yours forever</div>
+
+      <div class="includes">
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          The 60-Day Glow Up Guide — 50-page PDF
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          7-Day Meal Plan + Full Grocery List
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          4 Printable Workout Logs
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          60-Day Color-Coded Calendar
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          Weekly Habit Tracker
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          Lifetime access · every future update free
+        </div>
+      </div>
+
+      <!-- ↓ Replace href with your Gumroad link -->
+      <a href="YOUR_GUMROAD_LINK_HERE" class="btn-buy" target="_blank">
+        Start My 60 Days — $17
+      </a>
+
+      <div class="guarantee-note">
+        🛡 14-day money-back guarantee · No questions asked
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="container">
+    <h2 class="faq-title reveal">Your <em>questions,</em> answered</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">I'm a complete beginner. Is this too advanced? <span class="chevron">▾</span></div>
+        <div class="faq-a">Not at all. The guide assumes nothing. Every lift has form cues, every concept is explained from the ground up, and Phase 1 is specifically built for getting started without burning out.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Do I need a gym? <span class="chevron">▾</span></div>
+        <div class="faq-a">A gym makes things easier, but everything can be done with a set of dumbbells at home. The six movement patterns covered work with any equipment setup.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">I'm vegetarian or vegan. Does this work for me? <span class="chevron">▾</span></div>
+        <div class="faq-a">Yes. Chapter 3 includes plant-based protein swaps, and the meal plan includes 1:1 substitutions for every meal. Every single recipe can be adapted.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">How long until I see results? <span class="chevron">▾</span></div>
+        <div class="faq-a">Most women see visible water-weight changes in week 1, real fat loss in measurements by week 3, and noticeable body composition changes between weeks 4–6. By Day 60, 4–10 pounds of real fat loss is realistic — alongside strength gains and inches lost.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">What's your refund policy? <span class="chevron">▾</span></div>
+        <div class="faq-a">If you read the guide, follow it honestly, and don't feel like it gave you a real plan you can actually use — email within 14 days for a full refund. No forms, no friction.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I print the worksheets? <span class="chevron">▾</span></div>
+        <div class="faq-a">Yes — the guide is designed to be printed. The workout logs, habit tracker, and 60-day calendar are all built for physical use. Print as many copies as you need.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="final-cta">
+  <div class="container-narrow">
+    <div class="final-ornament reveal">
+      <div class="ornament"><span></span></div>
+    </div>
+    <h2 class="final-title reveal reveal-delay-1">
+      The version of you<br>that's been waiting<br>is on the other side of <em>consistency.</em>
+    </h2>
+    <p class="final-sub reveal reveal-delay-2">
+      60 days. The science. The plan. Everything you need to actually do this.
+    </p>
+    <div class="final-actions reveal reveal-delay-3">
+      <!-- ↓ Replace href with your Gumroad link -->
+      <a href="YOUR_GUMROAD_LINK_HERE" class="btn-primary" target="_blank">
+        Start My 60 Days — $17
+        <span class="arrow">→</span>
+      </a>
+      <span style="font-family: var(--sans); font-size: 0.75rem; color: var(--text-lt);">
+        🛡 14-day guarantee · Instant download
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">The Glow Up Guide</div>
+  <div class="footer-links">
+    <a href="#inside">What's Inside</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <p class="footer-disc">
+    This guide is for educational purposes only and does not constitute medical advice. Results vary. If you are pregnant, breastfeeding, or managing a health condition, consult a qualified professional before beginning any nutrition or exercise program.
+  </p>
+</footer>
+
+<!-- ── JAVASCRIPT ── -->
+<script>
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
